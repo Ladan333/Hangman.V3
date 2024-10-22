@@ -112,7 +112,7 @@ internal class Graphic
         Center(@"[1] Play.", x-8, y);
         Center(@"[2] Themes.", x-7, y+1);
         Center(@"[3] Word list options.", x-2, y+2);
-        Center(@"[4] Quit.", x-8, y+3);
+        Center(@"[Q] Quit.", x-8, y+3);
     }
 
     #endregion
@@ -609,7 +609,7 @@ internal class Graphic
             Center("[2] Previous page", y+1, x + 10);
             Center("[3] Add a word", y-1, x + 11);
             Center("[4] Remove a word", y+1, x+12);
-            Center("[5] Exit", y-4, x+13);
+            Center("[Q] Back", y-4, x+13);
             MenuLineLower(theme, y, x+15);
     }
 
@@ -673,7 +673,8 @@ internal class Graphic
         ForegroundThree(theme);
         Center($"[1] Next page", y-1, x+7);
         Center($"[2] Previous page", y+1 ,x+8);
-        MenuLineLower(theme, y, x+10);
+        Center($"[Q] Back", y-4 ,x+9);
+        MenuLineLower(theme, y, x+11);
     }
 
     public static void RemoveWordConfirmGraphic(int theme, string input, int y, int x)

@@ -53,7 +53,7 @@ internal class Program
             case ConsoleKey.D1: return true;
             case ConsoleKey.D2: ThemeSelect(); return false;
             case ConsoleKey.D3: ViewList(theme); return false;
-            case ConsoleKey.D4: Environment.Exit(0); return false;
+            case ConsoleKey.Q: Environment.Exit(0); return false;
             default: return false;
         }
     }
@@ -87,7 +87,7 @@ internal class Program
                 case ConsoleKey.D2: position -= 5; break;
                 case ConsoleKey.D3: AddWord(theme, wordList); break;
                 case ConsoleKey.D4: RemoveWord(theme, wordList, position, maxViewable); break;
-                case ConsoleKey.D5: inMenu = false; break;
+                case ConsoleKey.Q: inMenu = false; break;
                 default: break;
             }
         } while (inMenu);
@@ -149,6 +149,7 @@ internal class Program
                 case ConsoleKey.D5: ConfirmRemoval(theme, wordList, wordList[position+2]); Console.ReadKey(); inMenu = false; break;
                 case ConsoleKey.D6: ConfirmRemoval(theme, wordList, wordList[position+3]); Console.ReadKey(); inMenu = false; break;
                 case ConsoleKey.D7: ConfirmRemoval(theme, wordList, wordList[position+4]); Console.ReadKey(); inMenu = false; break;
+                case ConsoleKey.Q: inMenu = false; break;
                 default: break;
             }
         } while (inMenu);
@@ -320,7 +321,7 @@ internal class Program
         bool validGuess = false;
         do
         {
-            Graphic.GuessingGraphic(theme, info, -2, 0);
+            Graphic.GuessingGraphic(theme, info, -4, 0);
             char rawGuess = Console.ReadKey().KeyChar;
             string guess = rawGuess.ToString().ToUpper();
             if (!IsAlphabetical(guess) || info.GuessedLetters.Contains(char.ToUpper(rawGuess)))
@@ -399,7 +400,7 @@ internal class Program
     static bool ValidateWordList()
     {
         if (!File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"TextFiles\\WordList.txt")))
-            throw new Exception(@"No file named 'WordList.txt' exists in the games files");
+            throw new Exception(@"Could not find the file 'WordList.txt'");
         else
             return true;
     }
