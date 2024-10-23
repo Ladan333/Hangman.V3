@@ -39,10 +39,10 @@ internal class Program
     static bool MainMenu()
     {
         Console.Clear();
-        Graphic.MenuLineUpper(theme, 0, -8);
-        Graphic.WriteTitle(theme, 0, -6);
-        Graphic.MenuOptions(theme, 0, 2);
-        Graphic.MenuLineLower(theme, 0, 7);
+        Graphic.MenuLineUpper(theme, 0, -10);
+        Graphic.WriteTitle(theme, 0, -8);
+        Graphic.MenuOptions(theme, 0, 0);
+        Graphic.MenuLineLower(theme, 0, 5);
         return MenuButtons(theme);
     }
 
