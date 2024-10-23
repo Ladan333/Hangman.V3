@@ -203,18 +203,22 @@ internal class Program
     #region Theme
     static void ThemeSelect()
     {
-        Graphic.ThemeSelectGraphics(theme, 0, -4);
-        switch (Console.ReadKey().Key)
+        bool inMenu = true;
+        do
         {
-            case ConsoleKey.D0: theme = 0; break;
-            case ConsoleKey.D1: theme = 1; break;
-            case ConsoleKey.D2: theme = 2; break;
-            case ConsoleKey.D3: theme = 3; break;
-            case ConsoleKey.D4: theme = 4; break;
-            case ConsoleKey.D5: theme = 5; break;
-            case ConsoleKey.M: break;
-            default: break;
-        }
+            Graphic.ThemeSelectGraphics(theme, 0, -4);
+            switch (Console.ReadKey().Key)
+            {
+                case ConsoleKey.D0: theme = 0; break;
+                case ConsoleKey.D1: theme = 1; break;
+                case ConsoleKey.D2: theme = 2; break;
+                case ConsoleKey.D3: theme = 3; break;
+                case ConsoleKey.D4: theme = 4; break;
+                case ConsoleKey.D5: theme = 5; break;
+                case ConsoleKey.M: inMenu = false; break;
+                default: break;
+            }
+        } while (inMenu);
     }
     #endregion
 
